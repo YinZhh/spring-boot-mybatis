@@ -1,0 +1,70 @@
+2018-02-23 11:16:05.784 ERROR 9120 --- [restartedMain] o.s.b.l.LoggingApplicationListener       : Cannot set level: ERROR   for 'org.hibernate'
+2018-02-23 11:16:05.784 ERROR 9120 --- [restartedMain] o.s.b.l.LoggingApplicationListener       : Cannot set level: INFO   for 'org.springframework.web'
+2018-02-23 11:16:05.788  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : Starting SpringBootDemoApplication on PC-20170630EJAC with PID 9120 (H:\spring-boot-mybatis\target\classes started by Administrator in H:\spring-boot-mybatis)
+2018-02-23 11:16:05.788  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : No active profile set, falling back to default profiles: default
+2018-02-23 11:16:05.789  INFO 9120 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2abbfd05: startup date [Fri Feb 23 11:16:05 CST 2018]; root of context hierarchy
+2018-02-23 11:16:06.103  INFO 9120 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-02-23 11:16:06.103  INFO 9120 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-23 11:16:06.104  INFO 9120 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-02-23 11:16:06.115  INFO 9120 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-23 11:16:06.116  INFO 9120 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 327 ms
+2018-02-23 11:16:06.148  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-23 11:16:06.149  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2018-02-23 11:16:06.349  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2abbfd05: startup date [Fri Feb 23 11:16:05 CST 2018]; root of context hierarchy
+2018-02-23 11:16:06.356  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/update.json],methods=[GET]}" onto public com.example.boot.domain.IInventory com.example.boot.controller.InventoryContorller.updateByPrimaryKey(java.lang.String)
+2018-02-23 11:16:06.356  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invt.json],methods=[GET]}" onto public com.example.boot.domain.IInventory com.example.boot.controller.InventoryContorller.selectIInventory(java.lang.String)
+2018-02-23 11:16:06.357  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-23 11:16:06.357  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-23 11:16:06.363  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:06.364  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:06.375  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:06.385  WARN 9120 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-23 11:16:06.415  INFO 9120 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-23 11:16:06.522  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-23 11:16:06.523  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-02-23 11:16:06.526  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-02-23 11:16:06.532  INFO 9120 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-02-23 11:16:06.534  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : Started SpringBootDemoApplication in 0.787 seconds (JVM running for 75.972)
+2018-02-23 11:16:12.820  INFO 9120 --- [Thread-28] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2abbfd05: startup date [Fri Feb 23 11:16:05 CST 2018]; root of context hierarchy
+2018-02-23 11:16:12.821  INFO 9120 --- [Thread-28] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-23 11:16:12.821  INFO 9120 --- [Thread-28] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2018-02-23 11:16:13.063 ERROR 9120 --- [restartedMain] o.s.b.l.LoggingApplicationListener       : Cannot set level: ERROR   for 'org.hibernate'
+2018-02-23 11:16:13.063 ERROR 9120 --- [restartedMain] o.s.b.l.LoggingApplicationListener       : Cannot set level: INFO   for 'org.springframework.web'
+2018-02-23 11:16:13.066  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : Starting SpringBootDemoApplication on PC-20170630EJAC with PID 9120 (H:\spring-boot-mybatis\target\classes started by Administrator in H:\spring-boot-mybatis)
+2018-02-23 11:16:13.067  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : No active profile set, falling back to default profiles: default
+2018-02-23 11:16:13.068  INFO 9120 --- [restartedMain] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e3eef73: startup date [Fri Feb 23 11:16:13 CST 2018]; root of context hierarchy
+2018-02-23 11:16:13.362  INFO 9120 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-02-23 11:16:13.363  INFO 9120 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-02-23 11:16:13.363  INFO 9120 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.27
+2018-02-23 11:16:13.375  INFO 9120 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-02-23 11:16:13.375  INFO 9120 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 307 ms
+2018-02-23 11:16:13.406  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-23 11:16:13.406  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-02-23 11:16:13.406  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-23 11:16:13.407  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-23 11:16:13.407  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-23 11:16:13.407  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-23 11:16:13.407  INFO 9120 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2018-02-23 11:16:13.603  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e3eef73: startup date [Fri Feb 23 11:16:13 CST 2018]; root of context hierarchy
+2018-02-23 11:16:13.610  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/update.json],methods=[GET]}" onto public com.example.boot.domain.IInventory com.example.boot.controller.InventoryContorller.updateByPrimaryKey(java.lang.String)
+2018-02-23 11:16:13.610  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/invt.json],methods=[GET]}" onto public com.example.boot.domain.IInventory com.example.boot.controller.InventoryContorller.selectIInventory(java.lang.String)
+2018-02-23 11:16:13.613  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-23 11:16:13.613  INFO 9120 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-23 11:16:13.619  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:13.619  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:13.631  INFO 9120 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-23 11:16:13.641  WARN 9120 --- [restartedMain] .t.AbstractTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2018-02-23 11:16:13.672  INFO 9120 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-02-23 11:16:13.781  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-02-23 11:16:13.781  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-02-23 11:16:13.784  INFO 9120 --- [restartedMain] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2018-02-23 11:16:13.793  INFO 9120 --- [restartedMain] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-02-23 11:16:13.794  INFO 9120 --- [restartedMain] c.e.boot.SpringBootDemoApplication       : Started SpringBootDemoApplication in 0.765 seconds (JVM running for 83.233)
+2018-02-23 11:16:15.078  INFO 9120 --- [Thread-34] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5e3eef73: startup date [Fri Feb 23 11:16:13 CST 2018]; root of context hierarchy
+2018-02-23 11:16:15.079  INFO 9120 --- [Thread-34] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2018-02-23 11:16:15.080  INFO 9120 --- [Thread-34] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans

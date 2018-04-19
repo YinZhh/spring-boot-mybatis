@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.boot.dao.IInventoryMapper">
+  <resultMap id="BaseResultMap" type="com.example.boot.domain.IInventory">
+    <id column="guid" jdbcType="VARCHAR" property="guid" />
+    <result column="customs_code" jdbcType="VARCHAR" property="customsCode" />
+    <result column="app_type" jdbcType="CHAR" property="appType" />
+    <result column="app_time" jdbcType="TIMESTAMP" property="appTime" />
+    <result column="app_status" jdbcType="VARCHAR" property="appStatus" />
+    <result column="app_uid" jdbcType="VARCHAR" property="appUid" />
+    <result column="app_uname" jdbcType="VARCHAR" property="appUname" />
+    <result column="cop_no" jdbcType="VARCHAR" property="copNo" />
+    <result column="pre_no" jdbcType="VARCHAR" property="preNo" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_type" jdbcType="VARCHAR" property="orderType" />
+    <result column="ebp_code" jdbcType="VARCHAR" property="ebpCode" />
+    <result column="ebp_name" jdbcType="VARCHAR" property="ebpName" />
+    <result column="ebc_code" jdbcType="VARCHAR" property="ebcCode" />
+    <result column="ebc_name" jdbcType="VARCHAR" property="ebcName" />
+    <result column="logistics_no" jdbcType="VARCHAR" property="logisticsNo" />
+    <result column="logistics_code" jdbcType="VARCHAR" property="logisticsCode" />
+    <result column="logistics_name" jdbcType="VARCHAR" property="logisticsName" />
+    <result column="invt_no" jdbcType="VARCHAR" property="invtNo" />
+    <result column="ie_flag" jdbcType="CHAR" property="ieFlag" />
+    <result column="port_code" jdbcType="VARCHAR" property="portCode" />
+    <result column="ie_date" jdbcType="TIMESTAMP" property="ieDate" />
+    <result column="owner_code" jdbcType="VARCHAR" property="ownerCode" />
+    <result column="owner_name" jdbcType="VARCHAR" property="ownerName" />
+    <result column="trade_code" jdbcType="VARCHAR" property="tradeCode" />
+    <result column="trade_name" jdbcType="VARCHAR" property="tradeName" />
+    <result column="agent_code" jdbcType="VARCHAR" property="agentCode" />
+    <result column="agent_name" jdbcType="VARCHAR" property="agentName" />
+    <result column="trade_mode" jdbcType="VARCHAR" property="tradeMode" />
+    <result column="traf_mode" jdbcType="CHAR" property="trafMode" />
+    <result column="traf_name" jdbcType="VARCHAR" property="trafName" />
+    <result column="voyage_no" jdbcType="VARCHAR" property="voyageNo" />
+    <result column="bill_no" jdbcType="VARCHAR" property="billNo" />
+    <result column="loct_no" jdbcType="VARCHAR" property="loctNo" />
+    <result column="license_no" jdbcType="VARCHAR" property="licenseNo" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="destination_port" jdbcType="VARCHAR" property="destinationPort" />
+    <result column="freight" jdbcType="NUMERIC" property="freight" />
+    <result column="freight_curr" jdbcType="VARCHAR" property="freightCurr" />
+    <result column="freight_mark" jdbcType="CHAR" property="freightMark" />
+    <result column="insured_fee" jdbcType="NUMERIC" property="insuredFee" />
+    <result column="insured_fee_curr" jdbcType="VARCHAR" property="insuredFeeCurr" />
+    <result column="insured_fee_mark" jdbcType="CHAR" property="insuredFeeMark" />
+    <result column="wrap_type" jdbcType="CHAR" property="wrapType" />
+    <result column="pack_no" jdbcType="NUMERIC" property="packNo" />
+    <result column="weight" jdbcType="NUMERIC" property="weight" />
+    <result column="net_weight" jdbcType="NUMERIC" property="netWeight" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="return_status" jdbcType="VARCHAR" property="returnStatus" />
+    <result column="return_time" jdbcType="TIMESTAMP" property="returnTime" />
+    <result column="return_info" jdbcType="VARCHAR" property="returnInfo" />
+    <result column="return_guid" jdbcType="VARCHAR" property="returnGuid" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="created_by_company" jdbcType="VARCHAR" property="createdByCompany" />
+    <result column="clearance_no" jdbcType="VARCHAR" property="clearanceNo" />
+    <result column="enterprise_id" jdbcType="INTEGER" property="enterpriseId" />
+    <result column="ciq_app_time" jdbcType="TIMESTAMP" property="ciqAppTime" />
+    <result column="ciq_flag" jdbcType="VARCHAR" property="ciqFlag" />
+    <result column="ciq_return_status" jdbcType="VARCHAR" property="ciqReturnStatus" />
+    <result column="ciq_return_info" jdbcType="VARCHAR" property="ciqReturnInfo" />
+    <result column="ciq_return_time" jdbcType="TIMESTAMP" property="ciqReturnTime" />
+    <result column="ciq_return_name" jdbcType="VARCHAR" property="ciqReturnName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    guid, customs_code, app_type, app_time, app_status, app_uid, app_uname, cop_no, pre_no, 
+    order_no, order_type, ebp_code, ebp_name, ebc_code, ebc_name, logistics_no, logistics_code, 
+    logistics_name, invt_no, ie_flag, port_code, ie_date, owner_code, owner_name, trade_code, 
+    trade_name, agent_code, agent_name, trade_mode, traf_mode, traf_name, voyage_no, 
+    bill_no, loct_no, license_no, country, destination_port, freight, freight_curr, freight_mark, 
+    insured_fee, insured_fee_curr, insured_fee_mark, wrap_type, pack_no, weight, net_weight, 
+    note, return_status, return_time, return_info, return_guid, created_date, created_by_company, 
+    clearance_no, enterprise_id, ciq_app_time, ciq_flag, ciq_return_status, ciq_return_info, 
+    ciq_return_time, ciq_return_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_export_inventory
+    where guid = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_export_inventory
+    where guid = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="guid" parameterType="com.example.boot.domain.IInventory">
+    insert into t_export_inventory (guid, customs_code, app_type, 
+      app_time, app_status, app_uid, 
+      app_uname, cop_no, pre_no, 
+      order_no, order_type, ebp_code, 
+      ebp_name, ebc_code, ebc_name, 
+      logistics_no, logistics_code, logistics_name, 
+      invt_no, ie_flag, port_code, 
+      ie_date, owner_code, owner_name, 
+      trade_code, trade_name, agent_code, 
+      agent_name, trade_mode, traf_mode, 
+      traf_name, voyage_no, bill_no, 
+      loct_no, license_no, country, 
+      destination_port, freight, freight_curr, 
+      freight_mark, insured_fee, insured_fee_curr, 
+      insured_fee_mark, wrap_type, pack_no, 
+      weight, net_weight, note, 
+      return_status, return_time, return_info, 
+      return_guid, created_date, created_by_company, 
+      clearance_no, enterprise_id, ciq_app_time, 
+      ciq_flag, ciq_return_status, ciq_return_info, 
+      ciq_return_time, ciq_return_name)
+    values (#{guid,jdbcType=VARCHAR}, #{customsCode,jdbcType=VARCHAR}, #{appType,jdbcType=CHAR}, 
+      #{appTime,jdbcType=TIMESTAMP}, #{appStatus,jdbcType=VARCHAR}, #{appUid,jdbcType=VARCHAR}, 
+      #{appUname,jdbcType=VARCHAR}, #{copNo,jdbcType=VARCHAR}, #{preNo,jdbcType=VARCHAR}, 
+      #{orderNo,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, #{ebpCode,jdbcType=VARCHAR}, 
+      #{ebpName,jdbcType=VARCHAR}, #{ebcCode,jdbcType=VARCHAR}, #{ebcName,jdbcType=VARCHAR}, 
+      #{logisticsNo,jdbcType=VARCHAR}, #{logisticsCode,jdbcType=VARCHAR}, #{logisticsName,jdbcType=VARCHAR}, 
+      #{invtNo,jdbcType=VARCHAR}, #{ieFlag,jdbcType=CHAR}, #{portCode,jdbcType=VARCHAR}, 
+      #{ieDate,jdbcType=TIMESTAMP}, #{ownerCode,jdbcType=VARCHAR}, #{ownerName,jdbcType=VARCHAR}, 
+      #{tradeCode,jdbcType=VARCHAR}, #{tradeName,jdbcType=VARCHAR}, #{agentCode,jdbcType=VARCHAR}, 
+      #{agentName,jdbcType=VARCHAR}, #{tradeMode,jdbcType=VARCHAR}, #{trafMode,jdbcType=CHAR}, 
+      #{trafName,jdbcType=VARCHAR}, #{voyageNo,jdbcType=VARCHAR}, #{billNo,jdbcType=VARCHAR}, 
+      #{loctNo,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{destinationPort,jdbcType=VARCHAR}, #{freight,jdbcType=NUMERIC}, #{freightCurr,jdbcType=VARCHAR}, 
+      #{freightMark,jdbcType=CHAR}, #{insuredFee,jdbcType=NUMERIC}, #{insuredFeeCurr,jdbcType=VARCHAR}, 
+      #{insuredFeeMark,jdbcType=CHAR}, #{wrapType,jdbcType=CHAR}, #{packNo,jdbcType=NUMERIC}, 
+      #{weight,jdbcType=NUMERIC}, #{netWeight,jdbcType=NUMERIC}, #{note,jdbcType=VARCHAR}, 
+      #{returnStatus,jdbcType=VARCHAR}, #{returnTime,jdbcType=TIMESTAMP}, #{returnInfo,jdbcType=VARCHAR}, 
+      #{returnGuid,jdbcType=VARCHAR}, #{createdDate,jdbcType=TIMESTAMP}, #{createdByCompany,jdbcType=VARCHAR}, 
+      #{clearanceNo,jdbcType=VARCHAR}, #{enterpriseId,jdbcType=INTEGER}, #{ciqAppTime,jdbcType=TIMESTAMP}, 
+      #{ciqFlag,jdbcType=VARCHAR}, #{ciqReturnStatus,jdbcType=VARCHAR}, #{ciqReturnInfo,jdbcType=VARCHAR}, 
+      #{ciqReturnTime,jdbcType=TIMESTAMP}, #{ciqReturnName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.boot.domain.IInventory">
+    insert into t_export_inventory
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        guid,
+      </if>
+      <if test="customsCode != null">
+        customs_code,
+      </if>
+      <if test="appType != null">
+        app_type,
+      </if>
+      <if test="appTime != null">
+        app_time,
+      </if>
+      <if test="appStatus != null">
+        app_status,
+      </if>
+      <if test="appUid != null">
+        app_uid,
+      </if>
+      <if test="appUname != null">
+        app_uname,
+      </if>
+      <if test="copNo != null">
+        cop_no,
+      </if>
+      <if test="preNo != null">
+        pre_no,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="ebpCode != null">
+        ebp_code,
+      </if>
+      <if test="ebpName != null">
+        ebp_name,
+      </if>
+      <if test="ebcCode != null">
+        ebc_code,
+      </if>
+      <if test="ebcName != null">
+        ebc_name,
+      </if>
+      <if test="logisticsNo != null">
+        logistics_no,
+      </if>
+      <if test="logisticsCode != null">
+        logistics_code,
+      </if>
+      <if test="logisticsName != null">
+        logistics_name,
+      </if>
+      <if test="invtNo != null">
+        invt_no,
+      </if>
+      <if test="ieFlag != null">
+        ie_flag,
+      </if>
+      <if test="portCode != null">
+        port_code,
+      </if>
+      <if test="ieDate != null">
+        ie_date,
+      </if>
+      <if test="ownerCode != null">
+        owner_code,
+      </if>
+      <if test="ownerName != null">
+        owner_name,
+      </if>
+      <if test="tradeCode != null">
+        trade_code,
+      </if>
+      <if test="tradeName != null">
+        trade_name,
+      </if>
+      <if test="agentCode != null">
+        agent_code,
+      </if>
+      <if test="agentName != null">
+        agent_name,
+      </if>
+      <if test="tradeMode != null">
+        trade_mode,
+      </if>
+      <if test="trafMode != null">
+        traf_mode,
+      </if>
+      <if test="trafName != null">
+        traf_name,
+      </if>
+      <if test="voyageNo != null">
+        voyage_no,
+      </if>
+      <if test="billNo != null">
+        bill_no,
+      </if>
+      <if test="loctNo != null">
+        loct_no,
+      </if>
+      <if test="licenseNo != null">
+        license_no,
+      </if>
+      <if test="country != null">
+        country,
+      </if>
+      <if test="destinationPort != null">
+        destination_port,
+      </if>
+      <if test="freight != null">
+        freight,
+      </if>
+      <if test="freightCurr != null">
+        freight_curr,
+      </if>
+      <if test="freightMark != null">
+        freight_mark,
+      </if>
+      <if test="insuredFee != null">
+        insured_fee,
+      </if>
+      <if test="insuredFeeCurr != null">
+        insured_fee_curr,
+      </if>
+      <if test="insuredFeeMark != null">
+        insured_fee_mark,
+      </if>
+      <if test="wrapType != null">
+        wrap_type,
+      </if>
+      <if test="packNo != null">
+        pack_no,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="netWeight != null">
+        net_weight,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="returnStatus != null">
+        return_status,
+      </if>
+      <if test="returnTime != null">
+        return_time,
+      </if>
+      <if test="returnInfo != null">
+        return_info,
+      </if>
+      <if test="returnGuid != null">
+        return_guid,
+      </if>
+      <if test="createdDate != null">
+        created_date,
+      </if>
+      <if test="createdByCompany != null">
+        created_by_company,
+      </if>
+      <if test="clearanceNo != null">
+        clearance_no,
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id,
+      </if>
+      <if test="ciqAppTime != null">
+        ciq_app_time,
+      </if>
+      <if test="ciqFlag != null">
+        ciq_flag,
+      </if>
+      <if test="ciqReturnStatus != null">
+        ciq_return_status,
+      </if>
+      <if test="ciqReturnInfo != null">
+        ciq_return_info,
+      </if>
+      <if test="ciqReturnTime != null">
+        ciq_return_time,
+      </if>
+      <if test="ciqReturnName != null">
+        ciq_return_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="customsCode != null">
+        #{customsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=CHAR},
+      </if>
+      <if test="appTime != null">
+        #{appTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appStatus != null">
+        #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="appUid != null">
+        #{appUid,jdbcType=VARCHAR},
+      </if>
+      <if test="appUname != null">
+        #{appUname,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preNo != null">
+        #{preNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="ebpCode != null">
+        #{ebpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebpName != null">
+        #{ebpName,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcCode != null">
+        #{ebcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcName != null">
+        #{ebcName,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsNo != null">
+        #{logisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsCode != null">
+        #{logisticsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsName != null">
+        #{logisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="invtNo != null">
+        #{invtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ieFlag != null">
+        #{ieFlag,jdbcType=CHAR},
+      </if>
+      <if test="portCode != null">
+        #{portCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ieDate != null">
+        #{ieDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownerCode != null">
+        #{ownerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null">
+        #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeCode != null">
+        #{tradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeName != null">
+        #{tradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentCode != null">
+        #{agentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeMode != null">
+        #{tradeMode,jdbcType=VARCHAR},
+      </if>
+      <if test="trafMode != null">
+        #{trafMode,jdbcType=CHAR},
+      </if>
+      <if test="trafName != null">
+        #{trafName,jdbcType=VARCHAR},
+      </if>
+      <if test="voyageNo != null">
+        #{voyageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loctNo != null">
+        #{loctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationPort != null">
+        #{destinationPort,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        #{freight,jdbcType=NUMERIC},
+      </if>
+      <if test="freightCurr != null">
+        #{freightCurr,jdbcType=VARCHAR},
+      </if>
+      <if test="freightMark != null">
+        #{freightMark,jdbcType=CHAR},
+      </if>
+      <if test="insuredFee != null">
+        #{insuredFee,jdbcType=NUMERIC},
+      </if>
+      <if test="insuredFeeCurr != null">
+        #{insuredFeeCurr,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredFeeMark != null">
+        #{insuredFeeMark,jdbcType=CHAR},
+      </if>
+      <if test="wrapType != null">
+        #{wrapType,jdbcType=CHAR},
+      </if>
+      <if test="packNo != null">
+        #{packNo,jdbcType=NUMERIC},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="netWeight != null">
+        #{netWeight,jdbcType=NUMERIC},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="returnStatus != null">
+        #{returnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTime != null">
+        #{returnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnInfo != null">
+        #{returnInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnGuid != null">
+        #{returnGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdByCompany != null">
+        #{createdByCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="clearanceNo != null">
+        #{clearanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null">
+        #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="ciqAppTime != null">
+        #{ciqAppTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ciqFlag != null">
+        #{ciqFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnStatus != null">
+        #{ciqReturnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnInfo != null">
+        #{ciqReturnInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnTime != null">
+        #{ciqReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ciqReturnName != null">
+        #{ciqReturnName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.boot.domain.IInventory">
+    update t_export_inventory
+    <set>
+      <if test="customsCode != null">
+        customs_code = #{customsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        app_type = #{appType,jdbcType=CHAR},
+      </if>
+      <if test="appTime != null">
+        app_time = #{appTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appStatus != null">
+        app_status = #{appStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="appUid != null">
+        app_uid = #{appUid,jdbcType=VARCHAR},
+      </if>
+      <if test="appUname != null">
+        app_uname = #{appUname,jdbcType=VARCHAR},
+      </if>
+      <if test="copNo != null">
+        cop_no = #{copNo,jdbcType=VARCHAR},
+      </if>
+      <if test="preNo != null">
+        pre_no = #{preNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="ebpCode != null">
+        ebp_code = #{ebpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebpName != null">
+        ebp_name = #{ebpName,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcCode != null">
+        ebc_code = #{ebcCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ebcName != null">
+        ebc_name = #{ebcName,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsNo != null">
+        logistics_no = #{logisticsNo,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsCode != null">
+        logistics_code = #{logisticsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="logisticsName != null">
+        logistics_name = #{logisticsName,jdbcType=VARCHAR},
+      </if>
+      <if test="invtNo != null">
+        invt_no = #{invtNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ieFlag != null">
+        ie_flag = #{ieFlag,jdbcType=CHAR},
+      </if>
+      <if test="portCode != null">
+        port_code = #{portCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ieDate != null">
+        ie_date = #{ieDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ownerCode != null">
+        owner_code = #{ownerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ownerName != null">
+        owner_name = #{ownerName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeCode != null">
+        trade_code = #{tradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeName != null">
+        trade_name = #{tradeName,jdbcType=VARCHAR},
+      </if>
+      <if test="agentCode != null">
+        agent_code = #{agentCode,jdbcType=VARCHAR},
+      </if>
+      <if test="agentName != null">
+        agent_name = #{agentName,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeMode != null">
+        trade_mode = #{tradeMode,jdbcType=VARCHAR},
+      </if>
+      <if test="trafMode != null">
+        traf_mode = #{trafMode,jdbcType=CHAR},
+      </if>
+      <if test="trafName != null">
+        traf_name = #{trafName,jdbcType=VARCHAR},
+      </if>
+      <if test="voyageNo != null">
+        voyage_no = #{voyageNo,jdbcType=VARCHAR},
+      </if>
+      <if test="billNo != null">
+        bill_no = #{billNo,jdbcType=VARCHAR},
+      </if>
+      <if test="loctNo != null">
+        loct_no = #{loctNo,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNo != null">
+        license_no = #{licenseNo,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationPort != null">
+        destination_port = #{destinationPort,jdbcType=VARCHAR},
+      </if>
+      <if test="freight != null">
+        freight = #{freight,jdbcType=NUMERIC},
+      </if>
+      <if test="freightCurr != null">
+        freight_curr = #{freightCurr,jdbcType=VARCHAR},
+      </if>
+      <if test="freightMark != null">
+        freight_mark = #{freightMark,jdbcType=CHAR},
+      </if>
+      <if test="insuredFee != null">
+        insured_fee = #{insuredFee,jdbcType=NUMERIC},
+      </if>
+      <if test="insuredFeeCurr != null">
+        insured_fee_curr = #{insuredFeeCurr,jdbcType=VARCHAR},
+      </if>
+      <if test="insuredFeeMark != null">
+        insured_fee_mark = #{insuredFeeMark,jdbcType=CHAR},
+      </if>
+      <if test="wrapType != null">
+        wrap_type = #{wrapType,jdbcType=CHAR},
+      </if>
+      <if test="packNo != null">
+        pack_no = #{packNo,jdbcType=NUMERIC},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=NUMERIC},
+      </if>
+      <if test="netWeight != null">
+        net_weight = #{netWeight,jdbcType=NUMERIC},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="returnStatus != null">
+        return_status = #{returnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="returnTime != null">
+        return_time = #{returnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="returnInfo != null">
+        return_info = #{returnInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="returnGuid != null">
+        return_guid = #{returnGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdDate != null">
+        created_date = #{createdDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdByCompany != null">
+        created_by_company = #{createdByCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="clearanceNo != null">
+        clearance_no = #{clearanceNo,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseId != null">
+        enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      </if>
+      <if test="ciqAppTime != null">
+        ciq_app_time = #{ciqAppTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ciqFlag != null">
+        ciq_flag = #{ciqFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnStatus != null">
+        ciq_return_status = #{ciqReturnStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnInfo != null">
+        ciq_return_info = #{ciqReturnInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="ciqReturnTime != null">
+        ciq_return_time = #{ciqReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ciqReturnName != null">
+        ciq_return_name = #{ciqReturnName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.boot.domain.IInventory">
+    update t_export_inventory
+    set customs_code = #{customsCode,jdbcType=VARCHAR},
+      app_type = #{appType,jdbcType=CHAR},
+      app_time = #{appTime,jdbcType=TIMESTAMP},
+      app_status = #{appStatus,jdbcType=VARCHAR},
+      app_uid = #{appUid,jdbcType=VARCHAR},
+      app_uname = #{appUname,jdbcType=VARCHAR},
+      cop_no = #{copNo,jdbcType=VARCHAR},
+      pre_no = #{preNo,jdbcType=VARCHAR},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      ebp_code = #{ebpCode,jdbcType=VARCHAR},
+      ebp_name = #{ebpName,jdbcType=VARCHAR},
+      ebc_code = #{ebcCode,jdbcType=VARCHAR},
+      ebc_name = #{ebcName,jdbcType=VARCHAR},
+      logistics_no = #{logisticsNo,jdbcType=VARCHAR},
+      logistics_code = #{logisticsCode,jdbcType=VARCHAR},
+      logistics_name = #{logisticsName,jdbcType=VARCHAR},
+      invt_no = #{invtNo,jdbcType=VARCHAR},
+      ie_flag = #{ieFlag,jdbcType=CHAR},
+      port_code = #{portCode,jdbcType=VARCHAR},
+      ie_date = #{ieDate,jdbcType=TIMESTAMP},
+      owner_code = #{ownerCode,jdbcType=VARCHAR},
+      owner_name = #{ownerName,jdbcType=VARCHAR},
+      trade_code = #{tradeCode,jdbcType=VARCHAR},
+      trade_name = #{tradeName,jdbcType=VARCHAR},
+      agent_code = #{agentCode,jdbcType=VARCHAR},
+      agent_name = #{agentName,jdbcType=VARCHAR},
+      trade_mode = #{tradeMode,jdbcType=VARCHAR},
+      traf_mode = #{trafMode,jdbcType=CHAR},
+      traf_name = #{trafName,jdbcType=VARCHAR},
+      voyage_no = #{voyageNo,jdbcType=VARCHAR},
+      bill_no = #{billNo,jdbcType=VARCHAR},
+      loct_no = #{loctNo,jdbcType=VARCHAR},
+      license_no = #{licenseNo,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      destination_port = #{destinationPort,jdbcType=VARCHAR},
+      freight = #{freight,jdbcType=NUMERIC},
+      freight_curr = #{freightCurr,jdbcType=VARCHAR},
+      freight_mark = #{freightMark,jdbcType=CHAR},
+      insured_fee = #{insuredFee,jdbcType=NUMERIC},
+      insured_fee_curr = #{insuredFeeCurr,jdbcType=VARCHAR},
+      insured_fee_mark = #{insuredFeeMark,jdbcType=CHAR},
+      wrap_type = #{wrapType,jdbcType=CHAR},
+      pack_no = #{packNo,jdbcType=NUMERIC},
+      weight = #{weight,jdbcType=NUMERIC},
+      net_weight = #{netWeight,jdbcType=NUMERIC},
+      note = #{note,jdbcType=VARCHAR},
+      return_status = #{returnStatus,jdbcType=VARCHAR},
+      return_time = #{returnTime,jdbcType=TIMESTAMP},
+      return_info = #{returnInfo,jdbcType=VARCHAR},
+      return_guid = #{returnGuid,jdbcType=VARCHAR},
+      created_date = #{createdDate,jdbcType=TIMESTAMP},
+      created_by_company = #{createdByCompany,jdbcType=VARCHAR},
+      clearance_no = #{clearanceNo,jdbcType=VARCHAR},
+      enterprise_id = #{enterpriseId,jdbcType=INTEGER},
+      ciq_app_time = #{ciqAppTime,jdbcType=TIMESTAMP},
+      ciq_flag = #{ciqFlag,jdbcType=VARCHAR},
+      ciq_return_status = #{ciqReturnStatus,jdbcType=VARCHAR},
+      ciq_return_info = #{ciqReturnInfo,jdbcType=VARCHAR},
+      ciq_return_time = #{ciqReturnTime,jdbcType=TIMESTAMP},
+      ciq_return_name = #{ciqReturnName,jdbcType=VARCHAR}
+    where guid = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

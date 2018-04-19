@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+    datasource:
+        name: postgres
+        url: jdbc:postgresql://db.vr-iesp.weilian.cn:5432/iesp-declaration
+        username: postgres
+        password: suneeedba
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: org.postgresql.Driver
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com.example.quartz.domain
+
+
+
+#spring.thymeleaf.cache=false
+
+#pagehelper分页插件
+#pagehelper:
+#   helperDialect: mysql
+#    reasonable: true
+#    supportMethodsArguments: true
+#    params: count=countSql
+
+#spring:
+  #  devtools:
+       # restart:
+            #热部署生效
+       #   enabled: true
+            #设置重启的目录
+            #additional-paths: src/main/java
+            #classpath目录下的WEB-INF文件夹内容修改不重启
+          #exclude: WEB-INF/**

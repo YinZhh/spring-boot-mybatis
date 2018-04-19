@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<!--Mybatis Generator最完整配置详解  https://www.jianshu.com/p/e09d2370b796   mybatis-generator:generate -e-->
+<generatorConfiguration>
+    <classPathEntry location="E:\tool\apache\apache-maven-3.3.9\repository\org\postgresql\postgresql\9.4-1205-jdbc41\postgresql-9.4-1205-jdbc41.jar"/>
+    <!--defaultModelType 这个属性的值会影响实体类(或叫domain类,model类)的生成 参考链接http://blog.csdn.net/isea533/article/details/42102297 -->
+    <context id="PostgreSQL" defaultModelType="flat">
+
+        <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <property name="suppressAllComments" value="true"/>
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
+            一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
+        -->
+        <property name="autoDelimitKeywords" value="false"/>
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码 -->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码 -->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--<plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="com.foo.louis.plugins.PaginationPlugin"/>
+        <plugin type="com.foo.louis.plugins.DeleteByExampleMysqlBugFixedPlugin"/>-->
+
+        <!-- 是否去掉注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="org.postgresql.Driver"
+                        connectionURL="jdbc:postgresql://db.iesp.weilian.cn:5432/iesp-declaration" userId="postgres"
+                        password="suneeedba"/>
+        <!--<jdbcConnection driverClass="org.postgresql.Driver" connectionURL="jdbc:postgresql://db.iesp.weilian.cn:5432/iesp-depot" userId="postgres" password="suneeedba"/>-->
+
+        <javaModelGenerator targetPackage="com.example.boot.domain" targetProject="src/main/java">
+            <!-- 是否对model添加 构造函数 -->
+            <!--<property name="constructorBased" value="true"/>-->
+            <!-- 是否允许子包，即targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 建立的Model对象是否 不可改变  即生成的Model对象不会有 setter方法，只有构造方法 -->
+            <property name="immutable" value="false"/>
+            <!-- 给Model添加一个父类 -->
+            <property name="Object" value="java.lang.Object"/>
+            <!-- 是否对类CHAR类型的列的数据进行trim操作 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.example.boot.dao" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.example.boot.dao" targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+
+        <table tableName="t_export_inventory" domainObjectName="IInventory" enableInsert="true"
+               enableDeleteByPrimaryKey="true"
+               enableSelectByPrimaryKey="true"
+               enableUpdateByPrimaryKey="true"
+               enableCountByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               enableUpdateByExample="false"/>
+    </context>
+</generatorConfiguration>
