@@ -4,9 +4,9 @@ server:
 spring:
     datasource:
         name: postgres
-        url: jdbc:postgresql://db.vr-iesp.weilian.cn:5432/iesp-declaration
+        url: jdbc:postgresql:/localhost:5432/iesp-declaration
         username: postgres
-        password: suneeedba
+        password: ****
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: org.postgresql.Driver
