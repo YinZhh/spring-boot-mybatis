@@ -1,11 +1,9 @@
 package com.example;
 
-import com.alibaba.druid.sql.visitor.functions.If;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
-import java.util.Set;
+import java.io.IOException;
 
 /**
  * @ClassName Test
@@ -58,6 +56,7 @@ public class Test {
 //        }
 //    }
 
+
     public static void main(String[] args) {
 //        Test t = new Test();
 //        t.first();
@@ -80,7 +79,8 @@ public class Test {
 
     }
 
-    private void first() {
+    private void first() throws Exception{
+
         int i = 5;
         Value v = new Value();
         v.i = 25;
@@ -88,9 +88,15 @@ public class Test {
         System.out.println(v.i + "&" + i + "\r\n");
 
     }
-
-    private void seccound(Value v, int i) {
-        i = 0;
+    /**
+     * @deprecated (That ' s the purpose of the method)
+     * @date 2018/4/26 11:49
+     * @param i Value的值
+     * @param v int值
+     * @return void
+     * @Throws
+     */
+    private void seccound(Value v, int i) throws IOException {
         v.i = 20;
         v = new Value();
 
@@ -100,6 +106,11 @@ public class Test {
     }
 
     //将数组的第一个元素变为0
+
+    /**
+     *
+     * @param array 数组
+     */
     private static void change(int[] array) {
         array[0] = 110;
 

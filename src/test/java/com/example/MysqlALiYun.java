@@ -16,7 +16,7 @@ public class MysqlALiYun {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://47.106.137.210:3306/mydata","root","123456");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydata","root","*****");
             System.out.println("远程Mysql连接测试：" + conn);
 
             PreparedStatement prepareStatement = conn.prepareStatement("select * from t_export_inventory where guid = ? ");

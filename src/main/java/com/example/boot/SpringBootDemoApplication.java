@@ -1,7 +1,7 @@
 package com.example.boot;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 /**
  *
@@ -21,6 +21,7 @@ public class SpringBootDemoApplication {
      * @Throws
      */
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootDemoApplication.class, args);
+        new SpringApplicationBuilder(SpringBootDemoApplication.class).web(true).run(args);
+        //SpringApplication.run(SpringBootDemoApplication.class, args);
     }
 }
