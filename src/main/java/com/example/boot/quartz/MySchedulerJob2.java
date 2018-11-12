@@ -64,3 +64,6 @@ public class MySchedulerJob2 implements Job {
         System.out.println("get value from zookeeper [ " + name + " ]" + "=====> " + iInventory);
     }
 }
+
+
+

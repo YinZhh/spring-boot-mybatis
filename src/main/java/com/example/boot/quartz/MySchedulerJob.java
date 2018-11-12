@@ -18,7 +18,7 @@ import java.util.Date;
 public class MySchedulerJob implements Job {
 
     private SimpleDateFormat dateFormat() {
-        return new SimpleDateFormat("HH:mm:ss");
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     }
 
     @Override
