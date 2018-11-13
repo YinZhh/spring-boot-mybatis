@@ -3,7 +3,7 @@ package com.example.boot.quartz;
 
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
-import org.quartz.JobExecutionException;
+import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +15,7 @@ import java.util.Date;
  * @Date 2018-03-19 16:54
  * @Version v.1.0.0
  */
+@Component
 public class MySchedulerJob implements Job {
 
     private SimpleDateFormat dateFormat() {

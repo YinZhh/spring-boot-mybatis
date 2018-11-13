@@ -18,11 +18,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MySchedulerListener implements ApplicationListener<ContextRefreshedEvent> {
 
-    @Autowired
-    private MyScheduler myScheduler;
+    private final MyScheduler myScheduler;
+
+    private final MyJobFactory myJobFactory;
 
     @Autowired
-    private MyJobFactory myJobFactory;
+    public MySchedulerListener(MyScheduler myScheduler, MyJobFactory myJobFactory) {
+        this.myScheduler = myScheduler;
+        this.myJobFactory = myJobFactory;
+    }
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
